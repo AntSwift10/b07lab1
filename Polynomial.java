@@ -1,4 +1,4 @@
-package b07lab1;
+import java.lang.Math;
 
 public class Polynomial {
 	//Fields
