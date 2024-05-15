@@ -13,21 +13,20 @@ public class Polynomial {
 	Polynomial(double[] coeffs) {
 		coefficients = new double[coeffs.length];
 		for(int i = 0; i < coeffs.length; i++) {
-			coefficients[i] = i;
+			coefficients[i] = coeffs[i];
 		}
 	}
 	
 	Polynomial add(Polynomial added) {
-	double[] result = new double[Math.max(coefficients.length, added.coefficients.length)];
-		coefficients = new double[added.coefficients.length];
+		double[] result = new double[Math.max(this.coefficients.length, added.coefficients.length)];
 		for(int i = 0; i < added.coefficients.length; i++) {
 			result[i] += added.coefficients[i];
 		}
-		for(int i = 0; i < coefficients.length; i++) {
-			result[i] += coefficients[i];
+		for(int i = 0; i < this.coefficients.length; i++) {
+			result[i] += this.coefficients[i];
 		}
-	Polynomial returned = new Polynomial(result);
-	return returned;
+		Polynomial returned = new Polynomial(result);
+		return returned;
 	}
 	
 	double evaluate(double point) {
