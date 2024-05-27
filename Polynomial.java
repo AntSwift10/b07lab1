@@ -3,30 +3,31 @@ import java.lang.Math;
 public class Polynomial {
 	//Fields
 	double [] coefficients;
+	double [] exponents;
 	
 	//Methods
 	Polynomial() {
 		coefficients = new double[1];
 		coefficients[0] = 0;
+		exponents = new double[1];
+		exponents[0] = 0;
 	}
 	
-	Polynomial(double[] coeffs) {
+	Polynomial(double[] coeffs, double[] exps) {
 		coefficients = new double[coeffs.length];
 		for(int i = 0; i < coeffs.length; i++) {
 			coefficients[i] = coeffs[i];
 		}
+		exponents = new double[exps.length];
+		for(int i = 0; i < exps.length; i++) {
+			exponents[i] = exps[i];
+		}
 	}
 	
 	Polynomial add(Polynomial added) {
-		double[] result = new double[Math.max(this.coefficients.length, added.coefficients.length)];
-		for(int i = 0; i < added.coefficients.length; i++) {
-			result[i] += added.coefficients[i];
-		}
-		for(int i = 0; i < this.coefficients.length; i++) {
-			result[i] += this.coefficients[i];
-		}
-		Polynomial returned = new Polynomial(result);
-		return returned;
+	//Get length of new Exponent Array
+		int len = 0;
+		
 	}
 	
 	double evaluate(double point) {
