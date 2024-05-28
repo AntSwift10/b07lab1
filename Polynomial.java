@@ -72,6 +72,29 @@ public class Polynomial {
 		return new Polynomial(newCoeffs, newExponents);
 	}
 	
+	Polynomial multiply(Polynomial added) {
+		//Create the base
+		Polynomial base = new Polynomial();
+		
+		//Do Main Logic
+		double tempCoeff = 0;
+		int tempExp = 0;
+		for (int i = 0; i < exponents.length; i++) {
+			//Iterate through caller terms
+			tempCoeff = coefficients[i];
+			tempExp = exponents[i];
+			for (int j = 0; j < added.exponents.length; j++) {
+				//Iterate through parameter terms, adding each term to Base
+				double[] tempArr1 = {added.coefficients[j] * tempCoeff};
+				int[] tempArr2 = {added.exponents[j] + tempExp};
+				base = base.add(new Polynomial(tempArr1, tempArr2));
+			}
+		}
+		
+		//Return Base
+		return base;
+	}
+	
 	double evaluate(double point) {
 		double result = 0;
 		for(int i = 0; i < coefficients.length; i++) {
