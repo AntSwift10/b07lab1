@@ -26,5 +26,6 @@ public class Driver {
 		Polynomial p4 = new Polynomial(c4, e4);
 		Polynomial s2 = p3.multiply(p4);
 		System.out.println("s2(0.1) = " + s2.evaluate(0.1));
+		System.out.println("s2(0.5) = " + s2.evaluate(0.5));
 	}
 }
