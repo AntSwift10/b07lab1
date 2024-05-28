@@ -27,7 +27,13 @@ public class Polynomial {
 	Polynomial add(Polynomial added) {
 		//Make a temporary array
 		int max = 0;
-		int temp = Math.max(exponents[exponents.length-1], added.exponents[added.exponents.length-1]) + 1;
+		for (int i = 0; i < exponents.length; i++) {
+			max = Math.max(max, exponents[i]);
+		}
+		for (int i = 0; i < added.exponents.length; i++) {
+			max = Math.max(max, added.exponents[i]);
+		}
+		int temp = max;
 		double [] tempCoeffs = new double[temp];
 		for (int i = 0; i < temp; i++) {
 			tempCoeffs[i] = i;
