@@ -33,7 +33,7 @@ public class Polynomial {
 		for (int i = 0; i < added.exponents.length; i++) {
 			max = Math.max(max, added.exponents[i]);
 		}
-		int temp = max;
+		int temp = max + 1;
 		double [] tempCoeffs = new double[temp];
 		for (int i = 0; i < temp; i++) {
 			tempCoeffs[i] = i;
