@@ -36,7 +36,7 @@ public class Polynomial {
 		int temp = max + 1;
 		double [] tempCoeffs = new double[temp];
 		for (int i = 0; i < temp; i++) {
-			tempCoeffs[i] = i;
+			tempCoeffs[i] = 0;
 		}
 		
 		//Add to the Temp array
