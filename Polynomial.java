@@ -14,14 +14,47 @@ public class Polynomial {
 	}
 	
 	Polynomial(double[] coeffs, int[] exps) {
-		coefficients = new double[coeffs.length];
-		for(int i = 0; i < coeffs.length; i++) {
-			coefficients[i] = coeffs[i];
+		int max = 0;
+		for (int i = 0; i < exponents.length; i++) {
+			max = Math.max(max, exps[i]);
 		}
-		exponents = new int[exps.length];
-		for(int i = 0; i < exps.length; i++) {
-			exponents[i] = exps[i];
+		
+		coefficients = new double[max + 1];
+		exponents = new int[max + 1];
+		
+		int j = 0;
+		for (int i = 0; i < coeffs.length(); i++) {
+			if (coeffs[i] != 0) {
+				coefficients[j] = coeffs[i];
+				exponents[j] = exps[i];
+				j++;
+			}
 		}
+	}
+	
+	Polynomial(File file) {
+		//Get the line into a string
+		BufferedReader in = new BufferedReader(new FileReader(file));
+		String line = in.readLine();
+		
+		//Swap - with +-
+		line = line.replace("-", "+-");
+		
+		//Cut up input string
+		String[] lineArr = line.split("+");
+		
+		//Get biggest exponent
+		int max = 0;
+		String[] tempStorage;
+		for (int i = 0; i < lineArr.length(); i++) {
+			temp = lineArr[i].split("x");
+			if (temp.length() != 1) {
+				//Got split, so exponent is non 0
+				max = Math.max(max, temp[1]);
+			}
+		}
+		
+		//Make array
 	}
 	
 	Polynomial add(Polynomial added) {
