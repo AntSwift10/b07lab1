@@ -4,6 +4,7 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.FileWriter;
 
 public class Polynomial {
 	//Fields
@@ -150,6 +151,24 @@ public class Polynomial {
 		
 		//Return Base
 		return base;
+	}
+	
+	void saveToFile(String fileName) throws java.io.FileNotFoundException {
+		String base = "";
+		for(int i = 0; i < poly.coefficients.length; i++) {
+			if (poly.coefficients[i] == 0) {
+				continue;
+			}
+			if (poly.coefficients[i] < 0) {
+				base = base + poly.coefficients[i] + "x" + poly.exponents[i];
+			}
+			if (poly.coefficients[i] > 0) {
+				base = base + "+" + poly.coefficients[i] + "x" + poly.exponents[i];
+			}
+		}
+		FileWriter writer = new FileWriter(fileName);
+		writer.write(base);
+		writer.close();
 	}
 	
 	double evaluate(double point) {

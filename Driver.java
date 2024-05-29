@@ -1,7 +1,8 @@
 import java.lang.Math;
+import java.io.File;
 
 public class Driver {
-	public static void main(String [] args) {
+	public static void main(String [] args) throws java.io.FileNotFoundException {
 		Polynomial p = new Polynomial();
 		System.out.println(p.evaluate(3));
 		double [] c1 = {6,0,0,5};
@@ -27,5 +28,10 @@ public class Driver {
 		Polynomial s2 = p3.multiply(p4);
 		System.out.println("s2(0.1) = " + s2.evaluate(0.1));
 		System.out.println("s2(0.5) = " + s2.evaluate(0.5));
+		
+		//Test read and write to file
+		s2.saveToFile("test.txt");
+		File a = new File("test.txt");
+		Polynomial s3 = new Polynomial();
 	}
 }
