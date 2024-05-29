@@ -155,15 +155,15 @@ public class Polynomial {
 	
 	void saveToFile(String fileName) throws java.io.FileNotFoundException {
 		String base = "";
-		for(int i = 0; i < poly.coefficients.length; i++) {
-			if (poly.coefficients[i] == 0) {
+		for(int i = 0; i < coefficients.length; i++) {
+			if (coefficients[i] == 0) {
 				continue;
 			}
-			if (poly.coefficients[i] < 0) {
-				base = base + poly.coefficients[i] + "x" + poly.exponents[i];
+			if (coefficients[i] < 0) {
+				base = base + coefficients[i] + "x" + exponents[i];
 			}
-			if (poly.coefficients[i] > 0) {
-				base = base + "+" + poly.coefficients[i] + "x" + poly.exponents[i];
+			if (coefficients[i] > 0) {
+				base = base + "+" + coefficients[i] + "x" + exponents[i];
 			}
 		}
 		FileWriter writer = new FileWriter(fileName);
