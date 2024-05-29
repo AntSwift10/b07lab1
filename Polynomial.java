@@ -20,7 +20,7 @@ public class Polynomial {
 	
 	Polynomial(double[] coeffs, int[] exps) {
 		int max = 0;
-		for (int i = 0; i < exponents.length; i++) {
+		for (int i = 0; i < exps.length; i++) {
 			max = Math.max(max, exps[i]);
 		}
 		
