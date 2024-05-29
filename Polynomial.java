@@ -153,7 +153,7 @@ public class Polynomial {
 		return base;
 	}
 	
-	void saveToFile(String fileName) throws java.io.FileNotFoundException {
+	void saveToFile(String fileName) throws java.io.FileNotFoundException, IOException {
 		String base = "";
 		for(int i = 0; i < coefficients.length; i++) {
 			if (coefficients[i] == 0) {

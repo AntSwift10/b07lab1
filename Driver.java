@@ -1,8 +1,9 @@
 import java.lang.Math;
 import java.io.File;
+import java.io.IOException;
 
 public class Driver {
-	public static void main(String [] args) throws java.io.FileNotFoundException {
+	public static void main(String [] args) throws java.io.FileNotFoundException, IOException {
 		Polynomial p = new Polynomial();
 		System.out.println(p.evaluate(3));
 		double [] c1 = {6,0,0,5};
