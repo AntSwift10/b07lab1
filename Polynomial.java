@@ -83,19 +83,19 @@ public class Polynomial {
 		
 		//Convert to Final Array
 		int len = 0;
-		for (int i = 0; i < temp; i++) {
-			if (tempCoeffs[i] != 0) {
+		for (int i = 0; i < tempExp.length; i++) {
+			if (tempCoeff[i] != 0) {
 				len++;
 			}
 		}
 		
-		double [] newCoeffs = new double[len];
-		int [] newExponents = new int[len];
+		coefficients = new double[len];
+		exponents = new int[len];
 		
 		int j = 0;
-		for (int i = 0; i < temp; i++) {
-			if (tempCoeffs[i] != 0) {
-				coefficients[j] = tempCoeffs[i];
+		for (int i = 0; i < tempExp.length; i++) {
+			if (tempCoeff[i] != 0) {
+				coefficients[j] = tempCoeff[i];
 				exponents[j] = i;
 				j++;
 			}
@@ -176,14 +176,15 @@ public class Polynomial {
 	void saveToFile(String fileName) throws java.io.FileNotFoundException, IOException {
 		String base = "";
 		for(int i = 0; i < coefficients.length; i++) {
-			if (coefficients[i] == 0) {
-				continue;
-			}
 			if (coefficients[i] < 0) {
 				base = base + coefficients[i] + "x" + exponents[i];
 			}
 			if (coefficients[i] > 0) {
-				base = base + "+" + coefficients[i] + "x" + exponents[i];
+				if (base != "") {
+					base = base + "+" + coefficients[i] + "x" + exponents[i];
+				} else {
+					base = coefficients[i] + "x" + exponents[i];
+				}
 			}
 		}
 		FileWriter writer = new FileWriter(fileName);
