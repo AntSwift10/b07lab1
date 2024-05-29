@@ -1,4 +1,9 @@
 import java.lang.Math;
+import java.io.BufferedReader; 
+import java.io.FileReader; 
+import java.io.IOException;
+import java.io.File;
+import java.io.FileNotFoundException;
 
 public class Polynomial {
 	//Fields
@@ -23,7 +28,7 @@ public class Polynomial {
 		exponents = new int[max + 1];
 		
 		int j = 0;
-		for (int i = 0; i < coeffs.length(); i++) {
+		for (int i = 0; i < coeffs.length; i++) {
 			if (coeffs[i] != 0) {
 				coefficients[j] = coeffs[i];
 				exponents[j] = exps[i];
@@ -32,7 +37,7 @@ public class Polynomial {
 		}
 	}
 	
-	Polynomial(File file) {
+	Polynomial(File file) throws java.io.FileNotFoundException, IOException {
 		//Get the line into a string
 		BufferedReader in = new BufferedReader(new FileReader(file));
 		String line = in.readLine();
@@ -47,29 +52,29 @@ public class Polynomial {
 		int max = 0;
 		String[] temp;
 		String[] tempStorage;
-		for (int i = 0; i < lineArr.length(); i++) {
+		for (int i = 0; i < lineArr.length; i++) {
 			temp = lineArr[i].split("x");
-			if (temp.length() != 1) {
+			if (temp.length != 1) {
 				//Got split, so exponent is non 0
-				max = Math.max(max, temp[1]);
+				max = Math.max(max, Integer.parseInt(temp[1]));
 			}
 		}
 		
 		//Make array
-		double[] tempCoeff = new double[max + 1]
-		double[] tempExp = new double[max + 1]
+		double[] tempCoeff = new double[max + 1];
+		double[] tempExp = new double[max + 1];
 		
-		for (int i = 0; i < tempExp.length(); i++) {
+		for (int i = 0; i < tempExp.length; i++) {
 			tempExp[i] = i;
 		}
 		
 		//Fill temp Coeffs
-		for (int i = 0; i < lineArr.length(); i++) {
+		for (int i = 0; i < lineArr.length; i++) {
 			temp = lineArr[i].split("x");
-			if (lineArr.length() != 1) {
-				tempCoeff[parseInt(temp(1))] = parseDouble(temp(0));
+			if (lineArr.length != 1) {
+				tempCoeff[Integer.parseInt(temp[1])] = Double.parseDouble(temp[0]);
 			} else {
-				tempCoeff[0] = parseDouble(temp(0));
+				tempCoeff[0] = Double.parseDouble(temp[0]);
 			}
 		}
 	}
