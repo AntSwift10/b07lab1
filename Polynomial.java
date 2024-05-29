@@ -49,7 +49,7 @@ public class Polynomial {
 		line = line.replace("-", "+-");
 		
 		//Cut up input string
-		String[] lineArr = line.split("+");
+		String[] lineArr = line.split("\\+");
 		
 		//Get biggest exponent
 		int max = 0;
@@ -74,10 +74,30 @@ public class Polynomial {
 		//Fill temp Coeffs
 		for (int i = 0; i < lineArr.length; i++) {
 			temp = lineArr[i].split("x");
-			if (lineArr.length != 1) {
+			if (temp.length != 1) {
 				tempCoeff[Integer.parseInt(temp[1])] = Double.parseDouble(temp[0]);
 			} else {
 				tempCoeff[0] = Double.parseDouble(temp[0]);
+			}
+		}
+		
+		//Convert to Final Array
+		int len = 0;
+		for (int i = 0; i < temp; i++) {
+			if (tempCoeffs[i] != 0) {
+				len++;
+			}
+		}
+		
+		double [] newCoeffs = new double[len];
+		int [] newExponents = new int[len];
+		
+		int j = 0;
+		for (int i = 0; i < temp; i++) {
+			if (tempCoeffs[i] != 0) {
+				coefficients[j] = tempCoeffs[i];
+				exponents[j] = i;
+				j++;
 			}
 		}
 	}

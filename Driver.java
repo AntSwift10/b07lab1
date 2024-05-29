@@ -33,6 +33,8 @@ public class Driver {
 		//Test read and write to file
 		s2.saveToFile("test.txt");
 		File a = new File("test.txt");
-		Polynomial s3 = new Polynomial();
+		Polynomial s3 = new Polynomial(a);
+		System.out.println("s3(0.1) = " + s3.evaluate(0.1));
+		System.out.println("s3(0.5) = " + s3.evaluate(0.5));
 	}
 }
