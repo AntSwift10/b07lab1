@@ -45,6 +45,7 @@ public class Polynomial {
 		
 		//Get biggest exponent
 		int max = 0;
+		String[] temp;
 		String[] tempStorage;
 		for (int i = 0; i < lineArr.length(); i++) {
 			temp = lineArr[i].split("x");
@@ -55,6 +56,22 @@ public class Polynomial {
 		}
 		
 		//Make array
+		double[] tempCoeff = new double[max + 1]
+		double[] tempExp = new double[max + 1]
+		
+		for (int i = 0; i < tempExp.length(); i++) {
+			tempExp[i] = i;
+		}
+		
+		//Fill temp Coeffs
+		for (int i = 0; i < lineArr.length(); i++) {
+			temp = lineArr[i].split("x");
+			if (lineArr.length() != 1) {
+				tempCoeff[parseInt(temp(1))] = parseDouble(temp(0));
+			} else {
+				tempCoeff[0] = parseDouble(temp(0));
+			}
+		}
 	}
 	
 	Polynomial add(Polynomial added) {
